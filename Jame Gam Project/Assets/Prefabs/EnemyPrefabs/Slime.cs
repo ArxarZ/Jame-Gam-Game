@@ -64,11 +64,11 @@ public class Slime : MonoBehaviour
 
     void Dash()
     {
-        Speed = 6f;
+        Speed = 3f;
     }
     void Walk()
     {
-        Speed = 4f;
+        Speed = 1.5f;
     }
 
 }

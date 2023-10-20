@@ -15,17 +15,30 @@ public class Zombie : MonoBehaviour
     public int maxHealth = 20;
     public int health;
 
-    public Animator zombieAnim;
+    public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetAxis("Horizontal") > 0)
+        {
+            animator.SetInteger("Walking", 1);
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            animator.SetInteger("Walking", 2);
+        }
+        else if (Input.GetAxis("Vertical") > 0)
+        {
+            animator.SetInteger("Walking", 3);
+        }
+        else if (Input.GetAxis("Vertical") > 0)
+        {
+            animator.SetInteger("Walking", 4);
+        }
+
         // Checks difference in distance and moves the zombie towards the player
         distance = Vector2.Distance(transform.position, Player.transform.position);
         transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
