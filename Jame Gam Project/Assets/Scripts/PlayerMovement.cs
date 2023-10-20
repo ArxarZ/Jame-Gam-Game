@@ -37,9 +37,9 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer(Vector3.right);
         }
        
-<<<<<<< Updated upstream
+
         
-=======
+
         if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)) 
         {
             speed = SlowedSpeed;
@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
             speed = OriginalSpeed;
         }
 
->>>>>>> Stashed changes
     }
 
     private void MovePlayer(Vector3 direction)
