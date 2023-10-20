@@ -22,22 +22,7 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            animator.SetInteger("Walking", 1);
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            animator.SetInteger("Walking", 2);
-        }
-        else if (Input.GetAxis("Vertical") > 0)
-        {
-            animator.SetInteger("Walking", 3);
-        }
-        else if (Input.GetAxis("Vertical") > 0)
-        {
-            animator.SetInteger("Walking", 4);
-        }
+        Animations();
 
         // Checks difference in distance and moves the zombie towards the player
         distance = Vector2.Distance(transform.position, Player.transform.position);
@@ -55,5 +40,39 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    
+    void Animations()
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            animator.SetBool("Right", true);
+        }
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            animator.SetBool("Left", true);
+        }
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            animator.SetBool("Up", true);
+        }
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            animator.SetBool("Down", true);
+        }
+        if (Input.GetAxis("Horizontal") !> 0)
+        {
+            animator.SetBool("Right", false);
+        }
+        if (Input.GetAxis("Horizontal") !< 0)
+        {
+            animator.SetBool("Left", false);
+        }
+        if (Input.GetAxis("Vertical") !> 0)
+        {
+            animator.SetBool("Up", false);
+        }
+        if (Input.GetAxis("Vertical") !> 0)
+        {
+            animator.SetBool("Down", false);
+        }
+    }
 }

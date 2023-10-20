@@ -38,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
         }
        
 
-        
-
         if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)) 
         {
             speed = SlowedSpeed;
