@@ -34,12 +34,13 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer(Vector3.right);
         }
        
-
+        
     }
 
     private void MovePlayer(Vector3 direction)
     {
         //Movement Calculation
         transform.Translate(direction * speed * Time.deltaTime);
+        
     }
 }

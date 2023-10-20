@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -11,11 +12,14 @@ public class Zombie : MonoBehaviour
     private float distance;
     public float speed = 5f;
     public GameObject Player;
+    public int maxHealth = 20;
+    public int health;
+
+    public Animator zombieAnim;
 
     // Start is called before the first frame update
     void Start()
     {
-
 
     }
 
@@ -25,6 +29,7 @@ public class Zombie : MonoBehaviour
         // Checks difference in distance and moves the zombie towards the player
         distance = Vector2.Distance(transform.position, Player.transform.position);
         transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,4 +41,6 @@ public class Zombie : MonoBehaviour
             }
         }
     }
+
+    
 }
