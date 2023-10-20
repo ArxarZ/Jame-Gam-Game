@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Basic Variables
-    public float movementSpeed = 5f;
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    public float speed = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-
-
-        // Sets movement to the values of Horizontal and Vertical
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        movement = new Vector2(moveHorizontal, moveVertical).normalized;
         
     }
-    
-    void FixedUpdate()
+
+    // Update is called once per frame
+    void Update()
     {
-        // Calculates the movement
-        rb.velocity = movement * movementSpeed * Time.deltaTime;
+        if (Input.GetKey(KeyCode.W))
+        {
+            MovePlayer(Vector3.up);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            MovePlayer(Vector3.left);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            MovePlayer(Vector3.down);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            MovePlayer(Vector3.right);
+        }
+       
+
     }
 
-    
+    private void MovePlayer(Vector3 direction)
+    {
+        transform.Translate(direction * speed * Time.deltaTime);
+    }
 }
