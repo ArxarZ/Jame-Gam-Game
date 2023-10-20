@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Horrible Input code
         if (Input.GetKey(KeyCode.W))
         {
             MovePlayer(Vector3.up);
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer(Vector3 direction)
     {
+        //Movement Calculation
         transform.Translate(direction * speed * Time.deltaTime);
     }
 }
