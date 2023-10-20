@@ -1,20 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5;
-    private float OriginalSpeed;
-    private float SlowedSpeed;
+    public float speed = 7;
 
-    public Vector3 MovementVector;
-    
     // Start is called before the first frame update
     void Start()
     {
-        OriginalSpeed = speed;
-        SlowedSpeed = speed / 1.5f;
+   
     }
 
     // Update is called once per frame
@@ -38,20 +34,6 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer(Vector3.right);
         }
        
-        //Even more horrible Input code
-        // Speed Management
-        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
-        {
-            speed = SlowedSpeed;
-        }
-        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
-        {
-            speed = SlowedSpeed;
-        }
-        else
-        {
-            speed = OriginalSpeed;
-        }
 
     }
 
